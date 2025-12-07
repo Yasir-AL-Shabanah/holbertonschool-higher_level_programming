@@ -1,20 +1,39 @@
 #!/usr/bin/python3
-"""Print text with two new lines after . ? :"""
+"""Text indentation: 2 newlines after '.', '?', ':' and trim spaces."""
 
 
 def text_indentation(text):
-    """Split on . ? : and print each chunk trimmed, plus a blank line."""
+    """Print text with 2 newlines after '.', '?', ':' and no edge spaces.
+
+    The final output does not add a trailing newline after the last line.
+
+    Examples:
+    >>> text_indentation("Holberton School")
+    Holberton School
+    >>> text_indentation("Holberton. School? How are you: John")
+    Holberton.
+
+    School?
+
+    How are you:
+
+    John
+    """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    buf = []
+
+    parts = []
+    buf = ""
     for ch in text:
         if ch in ".?:":
-            line = "".join(buf).strip()
-            print(line)
-            print()
-            buf = []
+            parts.append((buf + ch).strip())
+            buf = ""
         else:
-            buf.append(ch)
-    tail = "".join(buf).strip()
-    if tail:
-        print(tail)
+            buf += ch
+    if buf.strip():
+        parts.append(buf.strip())
+
+    # Print without adding an extra newline at the end
+    out = "\n\n".join(parts)
+    import sys
+    sys.stdout.write(out)
