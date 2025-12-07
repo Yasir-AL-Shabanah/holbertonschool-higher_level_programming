@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Background color changer</title>
+  </head>
+  <body>
+    <button id="change-btn">Change background</button>
+    <script>
+      function changeColor() {
+        var colors = ["#ffdddd", "#ddffdd", "#ddddff", "#ffffdd"];
+        var index = Math.floor(Math.random() * colors.length);
+        document.body.style.backgroundColor = colors[index];
+      }
+
+      document
+        .getElementById("change-btn")
+        .addEventListener("click", changeColor);
+    </script>
+  </body>
+</html>
