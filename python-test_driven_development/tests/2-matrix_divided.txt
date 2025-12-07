@@ -7,7 +7,7 @@ Divide a matrix (doctest).
 [[0.0, 0.0], [0.0, 0.0]]
 
 Type checks:
->>> matrix_divided("not a matrix", 2)
+>>> matrix_divided("x", 2)
 Traceback (most recent call last):
 ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
@@ -27,3 +27,9 @@ TypeError: div must be a number
 Traceback (most recent call last):
 ...
 ZeroDivisionError: division by zero
+
+# Missing required argument:
+>>> matrix_divided([[1, 2]])
+Traceback (most recent call last):
+...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'

@@ -1,5 +1,4 @@
-4-print_square tests
-====================
+Print square (doctest).
 
 >>> print_square = __import__('4-print_square').print_square
 >>> print_square(3)
@@ -14,3 +13,9 @@ ValueError: size must be >= 0
 Traceback (most recent call last):
 ...
 TypeError: size must be an integer
+
+# Missing required argument:
+>>> print_square()
+Traceback (most recent call last):
+...
+TypeError: print_square() missing 1 required positional argument: 'size'

@@ -1,18 +1,25 @@
 #!/usr/bin/python3
-"""Module: add two newlines after '.', '?' and ':'. """
+"""
+Module: 5-text_indentation
+Print text, adding a blank line after '.', '?' or ':'.
+"""
+
 def text_indentation(text):
-    """Print text with two newlines after '.', '?' and ':'. """
+    """
+    Print text with two newlines after '.', '?' and ':'.
+
+    Raises:
+        TypeError: if text is not a string
+    """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    i = 0
-    n = len(text)
-    while i < n:
-        ch = text[i]
-        print(ch, end="")
+
+    cur = []
+    for ch in text:
+        cur.append(ch)
         if ch in ".?:":
-            print("\n")
-            i += 1
-            while i < n and text[i] == " ":
-                i += 1
-            continue
-        i += 1
+            print("".join(cur).strip())
+            print()
+            cur = []
+    if cur:
+        print("".join(cur).strip())

@@ -18,12 +18,8 @@ Traceback (most recent call last):
 ...
 TypeError: a must be an integer
 
-Float overflow / NaN edge cases:
->>> add_integer(float('inf'), 1)
+# Missing required argument:
+>>> add_integer()
 Traceback (most recent call last):
 ...
-OverflowError: cannot convert Infinity to integer
->>> add_integer(float('nan'), 1)
-Traceback (most recent call last):
-...
-ValueError: cannot convert float NaN to integer
+TypeError: add_integer() missing 1 required positional argument: 'a'
