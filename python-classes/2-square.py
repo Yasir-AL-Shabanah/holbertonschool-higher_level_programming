@@ -1,12 +1,18 @@
 #!/usr/bin/python3
-"""Module that defines Square with input validation on size."""
-
+"""Module 2-square: validate size type/value at construction."""
 class Square:
-    """Square validating that size is an int >= 0."""
-
+    """Square that validates size is an int >= 0."""
     def __init__(self, size=0):
-        """Initialize a Square, validating type and value."""
-        if not isinstance(size, int):
+        """Init with validation.
+
+        Args:
+            size: length of a side (int >= 0).
+
+        Raises:
+            TypeError: if size is not an int.
+            ValueError: if size is negative.
+        """
+        if type(size) is not int:
             raise TypeError("size must be an integer")
         if size < 0:
             raise ValueError("size must be >= 0")

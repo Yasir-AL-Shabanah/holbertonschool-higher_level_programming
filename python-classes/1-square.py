@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-"""Module that defines Square with a private size (no validation yet)."""
-
+"""Module 1-square: define Square with a private size."""
 class Square:
-    """Square storing a private size attribute."""
-
+    """Square with a private __size set at construction."""
     def __init__(self, size):
-        """Initialize a new Square with a raw size (task 1)."""
+        """Init: store size privately without validation (next tasks validate).
+
+        Args:
+            size: intended length of a square side (any type accepted here).
+        """
         self.__size = size

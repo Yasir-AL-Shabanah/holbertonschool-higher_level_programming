@@ -1,33 +1,31 @@
 #!/usr/bin/python3
-"""Module that defines Square with printable representation."""
-
+"""Module 5-square: add printable representation using '#'. """
 class Square:
-    """Square that can print itself with '#' characters."""
-
+    """Square with area() and my_print()."""
     def __init__(self, size=0):
-        """Initialize a Square using size property."""
+        """Init with validation (int >= 0)."""
         self.size = size
 
     @property
     def size(self):
-        """Get the current size."""
+        """Getter: current side length."""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Set size ensuring it is an int >= 0."""
-        if not isinstance(value, int):
+        """Setter: validate length then store it."""
+        if type(value) is not int:
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
 
     def area(self):
-        """Return the area of the square."""
+        """Return area of the square."""
         return self.__size * self.__size
 
     def my_print(self):
-        """Print the square using '#' or print a blank line if size is 0."""
+        """Print the square using '#'; print empty line if size == 0."""
         if self.__size == 0:
             print("")
             return
