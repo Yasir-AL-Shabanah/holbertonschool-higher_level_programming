@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 def uppercase(s):
     res = ""
     for ch in s:
