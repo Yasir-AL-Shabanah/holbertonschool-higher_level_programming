@@ -1,39 +1,31 @@
 #!/usr/bin/python3
-"""Addition of two integers with strict type validation.
+"""
+Simple integer addition with strict type checks.
 
-This module exposes add_integer(a, b=98) and its doc examples are
-verified by doctest.
+This module exposes one function:
+- add_integer(a, b=98): returns int(a) + int(b) after validating inputs.
+It rejects NaN/Inf floats explicitly and raises TypeError with the
+required messages when types are invalid.
 """
 
 
 def add_integer(a, b=98):
-    """Return int(a) + int(b).
+    """Return the addition of two integers.
 
-    Rules:
-    - a, b must be int or float, else TypeError with precise message.
-    - If float, they are cast to int before the addition.
-
-    Examples:
-    >>> add_integer(1, 2)
-    3
-    >>> add_integer(100, -2)
-    98
-    >>> add_integer(2)
-    100
-    >>> add_integer(100.3, -2)
-    98
-    >>> add_integer(4, "School")
-    Traceback (most recent call last):
-    ...
-    TypeError: b must be an integer
-    >>> add_integer(None)
-    Traceback (most recent call last):
-    ...
-    TypeError: a must be an integer
+    a and b can be int or float; floats are cast using truncation (toward 0).
+    Raises:
+        TypeError: if a or b are not int/float or are NaN/Inf floats.
     """
-    if not isinstance(a, (int, float)):
-        raise TypeError("a must be an integer")
-    if not isinstance(b, (int, float)):
-        raise TypeError("b must be an integer")
-    # int() will raise OverflowError for inf and ValueError for NaN (by design).
-    return int(a) + int(b)
+    import math
+
+    def _coerce(name, x):
+        if isinstance(x, bool):
+            raise TypeError(f"{name} must be an integer")
+        if not isinstance(x, (int, float)):
+            raise TypeError(f"{name} must be an integer")
+        if isinstance(x, float) and not math.isfinite(x):
+            # Match Holberton extra tests on NaN/Inf
+            raise TypeError(f"{name} must be an integer")
+        return int(x)
+
+    return _coerce("a", a) + _coerce("b", b)

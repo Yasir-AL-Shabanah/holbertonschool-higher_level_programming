@@ -1,39 +1,30 @@
 #!/usr/bin/python3
-"""Text indentation: 2 newlines after '.', '?', ':' and trim spaces."""
+"""
+Print text with 2 new lines after '.', '?' and ':' with no edge spaces.
+"""
 
 
 def text_indentation(text):
-    """Print text with 2 newlines after '.', '?', ':' and no edge spaces.
-
-    The final output does not add a trailing newline after the last line.
-
-    Examples:
-    >>> text_indentation("Holberton School")
-    Holberton School
-    >>> text_indentation("Holberton. School? How are you: John")
-    Holberton.
-
-    School?
-
-    How are you:
-
-    John
-    """
+    """Print text with two newlines after . ? : and trim spaces around lines."""
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    parts = []
-    buf = ""
-    for ch in text:
-        if ch in ".?:":
-            parts.append((buf + ch).strip())
-            buf = ""
-        else:
-            buf += ch
-    if buf.strip():
-        parts.append(buf.strip())
-
-    # Print without adding an extra newline at the end
-    out = "\n\n".join(parts)
+    i, n = 0, len(text)
+    line = ""
     import sys
-    sys.stdout.write(out)
+
+    while i < n:
+        ch = text[i]
+        if ch in ".?:":
+            sys.stdout.write(line.rstrip() + ch + "\n\n")
+            line = ""
+            i += 1
+            # skip spaces immediately following the punctuation
+            while i < n and text[i] == ' ':
+                i += 1
+            continue
+        line += ch
+        i += 1
+
+    if line.strip():
+        sys.stdout.write(line.strip())
