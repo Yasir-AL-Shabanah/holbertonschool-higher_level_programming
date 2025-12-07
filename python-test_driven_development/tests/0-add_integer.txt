@@ -1,7 +1,5 @@
-0-add_integer tests
-===================
+Integers addition (doctest).
 
-Examples:
 >>> add_integer = __import__('0-add_integer').add_integer
 >>> add_integer(1, 2)
 3
@@ -19,3 +17,13 @@ TypeError: b must be an integer
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer
+
+Float overflow / NaN edge cases:
+>>> add_integer(float('inf'), 1)
+Traceback (most recent call last):
+...
+OverflowError: cannot convert Infinity to integer
+>>> add_integer(float('nan'), 1)
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
