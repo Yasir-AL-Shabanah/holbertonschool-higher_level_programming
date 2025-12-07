@@ -1,18 +1,21 @@
 #!/usr/bin/python3
+"""Module that defines Square using @property for managed size."""
+
 class Square:
-    """Square with managed size property."""
+    """Square exposing a size property with validation."""
 
     def __init__(self, size=0):
+        """Initialize a Square using the property setter."""
         self.size = size
 
     @property
     def size(self):
-        """Get current size."""
+        """Get the current size."""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Set size with validation."""
+        """Set size ensuring it is an int >= 0."""
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
@@ -20,5 +23,5 @@ class Square:
         self.__size = value
 
     def area(self):
-        """Return area of the square."""
+        """Return the area of the square."""
         return self.__size * self.__size
