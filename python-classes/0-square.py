@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Module 0-square: defines an empty Square class for later extensions."""
+"""Define a class Square."""
+
+
 class Square:
-    """Square: empty blueprint used in next tasks."""
+    """Represent a square."""
     pass
