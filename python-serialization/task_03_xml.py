@@ -1,24 +1,33 @@
 #!/usr/bin/python3
-"""Serialize/deserialize dictionary to/from XML."""
-
 import xml.etree.ElementTree as ET
 
 
 def serialize_to_xml(dictionary, filename):
-    """Serialize 'dictionary' into XML and save to 'filename'."""
+    """
+    Serialize a Python dictionary into XML and save it to filename.
+    Values are stored as strings in XML.
+    """
     root = ET.Element("data")
-    for k, v in dictionary.items():
-        child = ET.SubElement(root, str(k))
-        child.text = str(v)
+    for key, value in dictionary.items():
+        child = ET.SubElement(root, str(key))
+        child.text = "" if value is None else str(value)
+
     tree = ET.ElementTree(root)
-    tree.write(filename, encoding="utf-8", xml_declaration=True)
+    tree.write(filename, encoding="utf-8")
 
 
 def deserialize_from_xml(filename):
-    """Read XML from 'filename' and return a dictionary (string values)."""
-    tree = ET.parse(filename)
-    root = tree.getroot()
-    result = {}
-    for child in root:
-        result[child.tag] = child.text
-    return result
+    """
+    Deserialize XML from filename into a Python dictionary.
+    XML values are returned as strings.
+    On failure, return an empty dictionary.
+    """
+    try:
+        tree = ET.parse(filename)
+        root = tree.getroot()
+        result = {}
+        for child in root:
+            result[child.tag] = "" if child.text is None else child.text
+        return result
+    except Exception:
+        return {}
