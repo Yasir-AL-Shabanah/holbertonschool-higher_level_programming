@@ -29,3 +29,9 @@ TypeError: size must be an integer
 Traceback (most recent call last):
 ...
 TypeError: size must be an integer
+
+Missing argument should raise TypeError from Python
+>>> print_square()
+Traceback (most recent call last):
+...
+TypeError: print_square() missing 1 required positional argument: 'size'

@@ -17,8 +17,10 @@ def text_indentation(text):
         ch = text[i]
         print(ch, end="")
         if ch in ".?:":
-            print("\n")
+            # سطر واحد جديد (لا نطبع سطر فاضي إضافي)
+            print()
             i += 1
+            # تخطي المسافات بعد علامة الترقيم
             while i < length and text[i] == " ":
                 i += 1
             continue
