@@ -12,11 +12,13 @@ def text_indentation(text):
 
     i = 0
     length = len(text)
+    saw_punct = False
 
     while i < length:
         ch = text[i]
         print(ch, end="")
         if ch in ".?:":
+            saw_punct = True
             # سطر جديد واحد بعد علامة الترقيم
             print()
             i += 1
@@ -26,5 +28,6 @@ def text_indentation(text):
             continue
         i += 1
 
-    # newline أخير ليطابق التست "Holberton.School"
-    print()
+    # newline أخير فقط إذا كان في النص علامة ترقيم
+    if saw_punct:
+        print()
