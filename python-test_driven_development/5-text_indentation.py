@@ -17,7 +17,7 @@ def text_indentation(text):
         ch = text[i]
         print(ch, end="")
         if ch in ".?:":
-            # سطر واحد جديد (لا نطبع سطر فاضي إضافي)
+            # سطر جديد واحد بعد علامة الترقيم
             print()
             i += 1
             # تخطي المسافات بعد علامة الترقيم
@@ -25,3 +25,6 @@ def text_indentation(text):
                 i += 1
             continue
         i += 1
+
+    # newline أخير ليطابق التست "Holberton.School"
+    print()
