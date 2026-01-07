@@ -1,40 +1,31 @@
 #!/usr/bin/python3
-"""Module for text_indentation function."""
+# 5-text_indentation.py
+# Brennan D Baraban <375@holbertonschool.com>
+"""Defines a text-indentation function."""
 
 
 def text_indentation(text):
-    """Print text with 2 new lines after '.', '?' and ':'.
+    """Print text with two new lines after each '.', '?', and ':'.
 
-    Text must be a string. Each printed line will not start
-    or end with a space.
+    Args:
+        text (string): The text to print.
+    Raises:
+        TypeError: If text is not a string.
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    separators = ".?:"
-    i = 0
-    n = len(text)
+    c = 0
+    while c < len(text) and text[c] == ' ':
+        c += 1
 
-    # تخطي المسافات في بداية النص
-    while i < n and text[i] == " ":
-        i += 1
-
-    result = ""
-
-    while i < n:
-        ch = text[i]
-        result += ch
-
-        if ch in separators:
-            # إضافة سطرين جديدين بعد علامة الترقيم
-            result += "\n\n"
-            i += 1
-            # تخطي المسافات بعد علامة الترقيم
-            while i < n and text[i] == " ":
-                i += 1
+    while c < len(text):
+        print(text[c], end="")
+        if text[c] == "\n" or text[c] in ".?:":
+            if text[c] in ".?:":
+                print("\n")
+            c += 1
+            while c < len(text) and text[c] == ' ':
+                c += 1
             continue
-
-        i += 1
-
-    # عدم طباعة سطر جديد إضافي في النهاية
-    print(result, end="")
+        c += 1
