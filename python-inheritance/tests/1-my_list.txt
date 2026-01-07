@@ -1,11 +1,41 @@
-MyList = __import__('1-my_list').MyList
+>>> MyList = __import__('1-my_list').MyList
 
-my_list = MyList()
-my_list.append(1)
-my_list.append(4)
-my_list.append(2)
-my_list.append(3)
-my_list.append(5)
-print(my_list)
-my_list.print_sorted()
-print(my_list)
+# إنشاء لستة جديدة وطباعة الحالة الأولية
+>>> my_list = MyList()
+>>> print(my_list)
+[]
+
+# إضافة عناصر غير مرتبة
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+
+# الطباعة العادية (تبقى غير مرتبة)
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+
+# الطباعة المرتبة باستخدام print_sorted (تصاعدي)
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+
+# نتأكد أن الليستة الأصلية ما تغيّرت
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+
+# اختبار: ليستة جديدة فاضية
+>>> empty_list = MyList()
+>>> empty_list.print_sorted()
+[]
+
+# اختبار: ليستة فيها أعداد سالبة ومكررة
+>>> another = MyList()
+>>> another.append(-1)
+>>> another.append(2)
+>>> another.append(2)
+>>> another.append(1)
+>>> print(another)
+[-1, 2, 2, 1]
+>>> another.print_sorted()
+[-1, 1, 2, 2]
