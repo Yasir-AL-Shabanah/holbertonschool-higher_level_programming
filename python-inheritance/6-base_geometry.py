@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Define BaseGeometry with area()."""
 
+
 class BaseGeometry:
     """BaseGeometry class."""
 

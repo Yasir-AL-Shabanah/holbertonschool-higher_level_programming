@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """Define Square with size property."""
-Rectangle = __import__('9-rectangle').Rectangle
+
+Rectangle = __import__("9-rectangle").Rectangle
+
 
 class Square(Rectangle):
     """Square class."""
