@@ -1,10 +1,10 @@
 # 0x0E. SQL - More Queries
 
-This directory covers advanced SQL queries.
+This project focuses on advanced SQL queries.
 
-## Topics
-- JOIN
+Topics:
+- JOINs
 - Subqueries
 - Constraints
-- Privileges
+- User privileges
 - GROUP BY

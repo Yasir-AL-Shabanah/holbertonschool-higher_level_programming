@@ -1,9 +1,9 @@
 # 0x0D. SQL - Introduction
 
-This directory contains introductory tasks for SQL.
+This project covers the basics of SQL.
 
-## Topics
-- Databases
-- Tables
+Topics:
+- What is a database
+- Creating databases and tables
 - Basic SQL queries
 - SELECT, INSERT, UPDATE, DELETE

@@ -1,8 +1,9 @@
 # 0x0F. Python - Object Relational Mapping
 
-This directory focuses on linking Python with databases.
+This project links Python with databases.
 
-## Topics
+Topics:
 - MySQLdb
-- SQLAlchemy ORM
-- Python + SQL
+- SQLAlchemy
+- ORM concepts
+- Python + MySQL
