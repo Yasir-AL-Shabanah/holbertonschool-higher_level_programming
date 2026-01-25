@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Script 11-model_state_insert.py for Holberton ORM/MySQL project."""
+
 # Adds the State object "Louisiana" to the database hbtn_0e_6_usa.
 # Usage: ./11-model_state_insert.py <mysql username> /
 #                                   <mysql password> /

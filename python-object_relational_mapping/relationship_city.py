@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Script relationship_city.py for Holberton ORM/MySQL project."""
+
 # Defines a City model.
 # Inherits from SQLAlchemy Base and links to the MySQL table cities.
 

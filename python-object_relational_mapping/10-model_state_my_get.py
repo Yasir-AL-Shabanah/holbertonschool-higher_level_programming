@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Script 10-model_state_my_get.py for Holberton ORM/MySQL project."""
+
 # Lists the State object with the name passed as argument
 # from the database hbtn_0e_6_usa.
 # Usage: ./10-model_state_my_get.py <mysql username> /

@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Script 5-filter_cities.py for Holberton ORM/MySQL project."""
+
 # Displays all cities of a given state from the
 # states table of the database hbtn_0e_4_usa.
 # Safe from SQL injections.

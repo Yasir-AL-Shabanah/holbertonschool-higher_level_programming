@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Script 102-relationship_cities_states_list.py for Holberton ORM/MySQL project."""
+
 # Lists all City objects from the database hbtn_0e_101_usa.
 # Usage: ./102-relationship_cities_states_list.py <mysql username> /
 #                                                 <mysql password> /

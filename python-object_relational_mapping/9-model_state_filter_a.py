@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Script 9-model_state_filter_a.py for Holberton ORM/MySQL project."""
+
 # Lists all State objects that contain the letter a
 # from the database hbtn_0e_6_usa.
 # Usage: ./9-model_state_filter_a.py <mysql username> /

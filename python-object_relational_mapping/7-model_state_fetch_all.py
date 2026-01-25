@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Script 7-model_state_fetch_all.py for Holberton ORM/MySQL project."""
+
 # Lists all State objects from the database hbtn_0e_6_usa.
 # Usage: ./7-model_state_fetch_all.py <mysql username> /
 #                                     <mysql password> /

@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Script relationship_state.py for Holberton ORM/MySQL project."""
+
 # Defines a State model.
 # Inherits from SQLAlchemy Base and links to the MySQL table states.
 from sqlalchemy import Column, Integer, String
