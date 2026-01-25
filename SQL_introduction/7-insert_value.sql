@@ -1,2 +1,4 @@
--- Inserts a new row into the table first_table.
-INSERT INTO `first_table` (`id`, `name`) VALUES (89, "Holberton School");
+-- 7. First add
+-- Insert row (89, 'Best School') into first_table
+INSERT INTO first_table (id, name)
+VALUES (89, 'Best School');

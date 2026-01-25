@@ -1,3 +1,4 @@
--- Removes all records with a score <= 5 in the table second_table.
-DELETE FROM `second_table`
-WHERE `score` <= 5;
+-- 13. Score too low
+-- Delete records from second_table with score <= 5
+DELETE FROM second_table
+WHERE score <= 5;
