@@ -1,17 +1,39 @@
 #!/usr/bin/python3
-# Displays all values in the states table of the database hbtn_0e_0_usa
-# whose name matches that supplied as argument.
-# Usage: ./2-my_filter_states.py <mysql username> \
-#                                <mysql password> \
-#                                <database name> \
-#                                <state name searched>
-import sys
+"""Filter states by name using a value provided by the user.
+
+This script is intentionally vulnerable to SQL injection for the task.
+"""
+
 import MySQLdb
+import sys
+
 
 if __name__ == "__main__":
-    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
-    c = db.cursor()
-    c.execute("SELECT * \
-                 FROM `states` \
-                WHERE BINARY `name` = '{}'".format(sys.argv[4]))
-    [print(state) for state in c.fetchall()]
+    if len(sys.argv) != 5:
+        sys.exit(1)
+
+    user = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+    state_name = sys.argv[4]
+
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=user,
+        passwd=password,
+        db=database,
+        charset="utf8"
+    )
+    cur = db.cursor()
+    query = (
+        "SELECT id, name FROM states "
+        "WHERE name LIKE BINARY '{}' "
+        "ORDER BY id ASC".format(state_name)
+    )
+    cur.execute(query)
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
+    cur.close()
+    db.close()
