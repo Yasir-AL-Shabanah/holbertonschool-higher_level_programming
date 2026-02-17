@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""Module 0-rectangle: empty Rectangle class."""
+"""Defines a class Rectangle."""
+
+
 class Rectangle:
-    """Empty rectangle for OOP warmup."""
+    """Empty class that defines a rectangle."""
+
     pass

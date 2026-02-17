@@ -1,64 +1,91 @@
 #!/usr/bin/python3
-"""Module 6-square: add position offset to printing and to __str__."""
+"""This module defines a class representing a square.
+
+Raises
+------
+TypeError
+    If the size provided is not an integer.
+ValueError
+    If the size provided is less than zero.
+Returns
+-------
+int
+    The area of the square.
+tuple
+    The position of the square's top-left corner.
+Attributes
+----------
+size : int
+    The size of the square's sides.
+position : tuple of int
+    The position of the square's top-left corner.
+"""
+
+
 class Square:
-    """Square with size and position controlling visual offset."""
-    def __init__(self, size=0, position=(0, 0)):
-        """Init with validation for size and position."""
-        self.size = size
-        self.position = position
+    """A class representing a square shape.
+
+    Attributes
+    ----------
+    size : int
+        The size of the square's sides.
+    position : tuple of int
+        The position of the square's top-left corner.
+    """
+    def __init__(self, __size=0, __position=(0, 0)):
+        """Initialize the square."""
+        if not isinstance(__size, int):
+            raise TypeError("size must be an integer")
+        if __size < 0:
+            raise ValueError("size must be >= 0")
+        self.__size = __size
+        if not isinstance(__position, tuple) or len(__position) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif not all(type(i) is int and i >= 0 for i in __position):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = __position
 
     @property
     def size(self):
-        """Getter: current side length."""
+        """int: The size of the square's sides."""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Setter: size must be int >= 0."""
-        if type(value) is not int:
+        """Set the size of the square's sides."""
+        if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
-        self.__size = value
+        else:
+            self.__size = value
 
     @property
     def position(self):
-        """Getter: tuple (x_offset, y_offset), both >= 0."""
+        """The position of the square's top-left corner."""
         return self.__position
 
     @position.setter
     def position(self, value):
-        """Setter: validate a 2-int tuple with non-negative values."""
-        if (type(value) is not tuple or len(value) != 2 or
-            type(value[0]) is not int or type(value[1]) is not int or
-            value[0] < 0 or value[1] < 0):
+        """Set the position of the square's top-left corner."""
+        if not isinstance(value, tuple) or len(value) != 2:
             raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = value
+        if all(type(i) is not int for i in value) or all(v < 0 for v in value):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        else:
+            self.__position = value
 
     def area(self):
-        """Return area of the square."""
+        """Return the size of the square."""
         return self.__size * self.__size
 
     def my_print(self):
-        """Print with vertical/top and horizontal/left offsets."""
+        """Print the square with the given size and position."""
         if self.__size == 0:
-            print("")
+            print()
             return
-        # vertical offset
-        for _ in range(self.__position[1]):
-            print("")
-        # content with horizontal offset
-        pad = " " * self.__position[0]
-        for _ in range(self.__size):
-            print(pad + ("#" * self.__size))
-
-    def __str__(self):
-        """Return the printable string (used by print())."""
-        if self.__size == 0:
-            return ""
-        lines = []
-        lines.extend([""] * self.__position[1])
-        pad = " " * self.__position[0]
-        for _ in range(self.__size):
-            lines.append(pad + ("#" * self.__size))
-        return "\n".join(lines)
+        else:
+            for i in range(self.__position[1]):
+                print()
+            for j in range(self.__size):
+                print(" " * self.__position[0] + "#" * self.__size)

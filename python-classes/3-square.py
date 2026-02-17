@@ -1,15 +1,33 @@
 #!/usr/bin/python3
-"""Module 3-square: compute the area of a validated square."""
+"""This module defines a class representing a square.
+
+Raises:
+    TypeError: If the size provided is not an integer.
+    ValueError: If the size provided is less than zero.
+
+Returns:
+    int: The area of the square.
+
+Attributes:
+    size (int): The size of the square's sides.
+"""
+
+
 class Square:
-    """Square with area()."""
-    def __init__(self, size=0):
-        """Init with validation (int >= 0)."""
-        if type(size) is not int:
+    """A class to represent a square shape.
+
+    Attributes:
+        size (int): The size of the square's sides.
+    """
+    __size = None
+
+    def __init__(self, __size=0):
+        if not isinstance(__size, int):
             raise TypeError("size must be an integer")
-        if size < 0:
+        if __size < 0:
             raise ValueError("size must be >= 0")
-        self.__size = size
+        else:
+            self.__size = __size
 
     def area(self):
-        """Return the area (size*size)."""
         return self.__size * self.__size
